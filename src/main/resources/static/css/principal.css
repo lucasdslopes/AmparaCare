@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: orange;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: orange;
+    color: white;
+}
+
+.main {
+    padding: 20px;
+}

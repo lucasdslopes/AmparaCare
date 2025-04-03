@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 80%;
+}
+
+.home-text {
+    max-width: 600px;
+}
+
+.text-h4 {
+    font-size: 1.5rem;
+    color: #FF7F00;
+    font-weight: bold;
+}
+
+.text-h1 {
+    font-size: 3.5rem;
+    margin-top: 0;
+    color: #000000;
+}
+
+.btn-conheca {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #FF7F00;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn-conheca:hover {
+    background-color: #E66A00;
+}
+
+.vantagens-lifecare {
+    background-color: #F3F3F3;
+    padding: 50px;
+    width: 100%;
+}
+
+.vantagens-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.vantagens-title span {
+    color: #1a73e8;
+    font-size: 2.5rem;
+}
+
+.vantagens-title h2 {
+    color: #FF7F00;
+    font-size: 2.5rem;
+}
+
+.vantagens-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.box {
+    background-color: #FF7F00;
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box-img img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.box p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}

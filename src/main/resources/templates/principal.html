@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">LifeCare</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+  <nav>
+    <a th:href="@{/home}">Home</a>
+    <a th:href="@{/solucao}">Solução</a>
+    <a th:href="@{/sobre}">Sobre</a>
+  </nav>
+</header>
+
+<div th:fragment="content"></div>
+
+<footer>
+  <p>© 2025 LifeCare - Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

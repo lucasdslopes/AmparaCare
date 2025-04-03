@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - LifeCare</title>
+  <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<main>
+  <section class="home">
+    <div class="home-text">
+      <h4 class="text-h4">Bem Vindo, Inova - X Care</h4>
+      <h1 class="text-h1">Conheça o LifeCare!</h1>
+      <p>Um relógio de saúde, monitorando constantemente os sinais vitais do paciente, alertando para qualquer anomalia e garantindo cuidados imediatos.</p>
+      <a href="/solucao" class="btn-conheca">Conheça</a>
+    </div>
+    <div class="home-img">
+      <img src="/assets/relogio.png" alt="Relogio LifeCare" />
+    </div>
+  </section>
+
+  <section class="vantagens-lifecare">
+    <div class="vantagens-title">
+      <span>Veja</span>
+      <h2>Vantagens do LifeCare</h2>
+      <div class="vantagens-container">
+        <div class="box">
+          <div class="box-img">
+            <img src="/assets/vantagem1.png" alt="Monitoramento Contínuo">
+          </div>
+          <h3>Monitoramento Contínuo</h3>
+          <p>A capacidade de monitoramento constante dos sinais vitais, como frequência cardíaca e pressão arterial, contribui para a identificação precoce de problemas de saúde.</p>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/assets/vantagem2.png" alt="Geolocalização">
+          </div>
+          <h3>Geolocalização</h3>
+          <p>A integração da geolocalização ajuda a rastrear a localização do idoso em situações de emergência, melhorando ainda mais a eficácia da resposta.</p>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/assets/vantagem3.png" alt="Design Acessível e Confortável">
+          </div>
+          <h3>Design Acessível e Confortável</h3>
+          <p>Seu design é pensado para atender às preferências estéticas e ergonômicas do público idoso, garantindo que o uso diário seja agradável e sem complicações.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

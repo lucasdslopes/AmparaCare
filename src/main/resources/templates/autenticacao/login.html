@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div layout:fragment="conteudo">
+  <main class="main-login">
+    <div class="login">
+      <div class="login-text">
+        <h2>Login Rápido para uma <br /> Experiência Personalizada</h2>
+        <img src="/assets/login.png" alt="Foto Login" class="login-img" />
+      </div>
+      <div class="login-form">
+        <div class="login-card">
+          <h2>LOGIN</h2>
+          <form method="post" th:action="@{/login}">
+            <div class="login-input">
+              <label for="username">Email</label>
+              <input type="email" id="username" name="username" placeholder="Email" required>
+            </div>
+            <div class="login-input">
+              <label for="password">Senha</label>
+              <input type="password" id="password" name="password" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="btn-login">Entrar</button>
+            <div th:if="${param.error != null}" class="erro-login">
+              <p>Email e/ou senha inválidos.</p>
+            </div>
+            <p class="cadastre-se">
+              Não tem conta? <a th:href="@{/cadastro}">Cadastre-se</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
