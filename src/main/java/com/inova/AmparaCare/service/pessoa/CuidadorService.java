@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CuidadorService {
 
-    Cuidador save(Cuidador d);
+    Cuidador save(Cuidador c);
 
     void delete(Cuidador c);
 

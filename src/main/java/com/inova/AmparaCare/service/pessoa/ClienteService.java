@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ClienteService {
 
-    Cliente save(Cliente d);
+    Cliente save(Cliente c);
 
-    void delete(Cliente d);
+    void delete(Cliente c);
 
     void deleteById(long id);
 
