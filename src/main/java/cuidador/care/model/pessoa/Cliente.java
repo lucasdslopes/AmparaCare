@@ -19,7 +19,5 @@ public class Cliente extends Pessoa {
 	private String email;
 	@Column(name = "idDispositivo")
 	private String idDispositivo;
-	
 
-	
 }
