@@ -16,12 +16,12 @@ public class ClienteController {
     private ClienteRepository repository;
 
     @PostMapping
-    public void cadastrar(@RequestBody Cliente cliente){
+    public void cadastrar(@RequestBody Cliente cliente) {
         repository.save(cliente);
     }
 
     @GetMapping
-    public List<Cliente> listar(){
+    public List<Cliente> listar() {
         return repository.findAll();
     }
 
@@ -45,6 +45,5 @@ public class ClienteController {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         }
-
-
-}}
+    }
+}

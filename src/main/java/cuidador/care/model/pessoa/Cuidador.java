@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Cuidador extends Pessoa {
 
 	@Column(name = "telefone")
-	private int telefone;
+	private String telefone;
 
 		
 }
