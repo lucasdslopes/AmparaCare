@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -25,5 +27,13 @@ public class Pessoa {
 	private String genero;
 	@Column(name = "endereco")
 	private String endereco;
-	
+	@Column(name = "tipo")
+	private String tipo;
+	@Column(name = "senha")
+	private Long senha;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "telefone")
+	private String telefone;
+
 }

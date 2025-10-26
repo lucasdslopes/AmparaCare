@@ -13,11 +13,15 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cliente extends Pessoa {
 
-	@Column(name = "senha")
-	private String senha;
-	@Column(name = "email")
-	private String email;
 	@Column(name = "idDispositivo")
 	private String idDispositivo;
+	@Column(name = "limite_batimentos_min")
+	private Integer limiteBatimentosMin = 50;
+	@Column(name = "limite_batimentos_max")
+	private Integer limiteBatimentosMax = 110;
+	@Column(name = "condicoes_medicas")
+	private String condicoesMedicas;
+
+
 
 }

@@ -13,8 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cuidador extends Pessoa {
 
-	@Column(name = "telefone")
-	private String telefone;
+	@Column(name = "experiencia_anos")
+	private Integer experienciaAnos;
+	@Column(name = "especialidades")
+	private String especialidades;
+	@Column(name = "avaliacao_media")
+	private Double avaliacaoMedia = 0.0;
 
-		
 }
