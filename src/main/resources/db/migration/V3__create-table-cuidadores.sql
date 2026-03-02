@@ -1,4 +1,4 @@
-CREATE TABLE cuidador (
+CREATE TABLE cuidadores (
 
     id BIGINT NOT NULL,
     certificacao VARCHAR(255),

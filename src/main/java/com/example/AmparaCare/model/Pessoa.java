@@ -1,12 +1,14 @@
 package com.example.AmparaCare.model;
 
+import com.example.AmparaCare.DTO.DadosAtualizacaoPessoa;
 import com.example.AmparaCare.DTO.DadosCadastroPessoa;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "Pessoa") // JPA DO JAVA
+@Entity(name = "Pessoas") // JPA DO JAVA
 @Table(name = "pessoas") // BANCO DE DADOS
 @EqualsAndHashCode(of = "id")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -34,4 +36,23 @@ public abstract class Pessoa {
         this.email = dados.email();
         this.endereco = new Endereco(dados.endereco());
     }
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoPessoa dados){
+        if(dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if(dados.genero() != null){
+            this.genero = dados.genero();
+        }
+        if(dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+        if(dados.email() != null){
+            this.email = dados.email();
+        }
+        if (dados.endereco() != null){
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
 }

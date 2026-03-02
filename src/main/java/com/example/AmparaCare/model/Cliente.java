@@ -1,16 +1,16 @@
 package com.example.AmparaCare.model;
 
-import com.example.AmparaCare.DTO.DadosCadastroCliente;
-import com.example.AmparaCare.DTO.DadosCadastroPessoa;
+import com.example.AmparaCare.DTO.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "cliente")
-@Entity(name = "Cliente")
+@Table(name = "clientes")
+@Entity(name = "Clientes")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,6 +31,22 @@ public class Cliente extends Pessoa{
         ));
         this.condicoesMedicas = dados.condicoesMedicas();
         this.contatoEmergencia = dados.contatoEmergencia();
+    }
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoCliente dados){
+        super.atualizarInformacoes(new DadosAtualizacaoPessoa(
+                dados.nome(),
+                dados.genero(),
+                dados.telefone(),
+                dados.email(),
+                dados.endereco()
+        ));
+        if(dados.condicoesMedicas()!=null){
+            this.condicoesMedicas = dados.condicoesMedicas();
+        }
+        if(dados.contatoEmergencia()!= null){
+            this.contatoEmergencia = dados.contatoEmergencia();
+        }
     }
 
 }

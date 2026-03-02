@@ -1,4 +1,4 @@
-CREATE TABLE cliente (
+CREATE TABLE clientes (
 
     id BIGINT NOT NULL,
     condicoes_medicas VARCHAR(500),
