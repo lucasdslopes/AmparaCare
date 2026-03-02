@@ -1,6 +1,7 @@
 # AmparaCare API
 
-API backend desenvolvida com Java e Spring Boot para gerenciamento de clientes e cuidadores em uma plataforma de cuidados.
+API REST desenvolvida com Java e Spring Boot para gerenciamento de clientes e cuidadores em uma plataforma de cuidados.
+O sistema permite cadastro, consulta, atualização e remoção de clientes e cuidadores, utilizando boas práticas de arquitetura backend, modelagem de domínio e persistência com JPA.
 
 ## 🚀 Tecnologias utilizadas
 
@@ -37,9 +38,12 @@ O projeto foi desenvolvido seguindo boas práticas de desenvolvimento backend, i
 - Separação de responsabilidades (Separation of Concerns)
 - Uso de DTOs para desacoplamento da camada de domínio
 - Princípios SOLID
-- Arquitetura inspirada em Domain-Driven Design (DDD)
-- Modelagem de domínio com herança e entidades bem definidas
+- Domain-Driven Design (DDD) 
+- Herança com JPA
+- Uso de @Embedded para objetos de valor
 - Versionamento de banco com Flyway
+- Validação com Bean Validation
+- Uso de Optional para evitar NullPointerException
 
 Essa abordagem torna o sistema mais:
 
@@ -111,6 +115,12 @@ Classe embutida contendo:
 * DadosListagemCliente
 * DadosListagemCuidador
 
+### Atualização
+
+*DadosAtualizacaoCliente
+*DadosAtualizacaoCuidador
+*DadosAtualizacaoPessoa
+
 ---
 
 ## 🌐 Endpoints implementados
@@ -123,6 +133,15 @@ Cadastra um novo cliente
 **GET** `/clientes`
 Lista todos os clientes
 
+**GET** `/clientes/{id}`
+Busca um cliente pelo ID
+
+**PUT** `/clientes/{cpf}`
+Atualiza os dados de um cliente pelo CPF
+
+**DELETE** `/clientes/{id}`
+Remove um cliente pelo ID
+
 ---
 
 ### Cuidador
@@ -132,6 +151,12 @@ Cadastra um novo cuidador
 
 **GET** `/cuidadores`
 Lista todos os cuidadores
+
+**PUT** `/cuidadores/{cpf}`
+Atualiza os dados de um cuidador pelo CPF
+
+**DELETE** `/cuidadores/{id}`
+Remove um cuidador pelo ID
 
 ---
 
@@ -214,10 +239,17 @@ spring.flyway.enabled=true
 
 * Cadastro de cliente
 * Listagem de clientes
+* Busca de cliente por ID
+* Atualização de cliente
+* Remoção de cliente
 * Cadastro de cuidador
 * Listagem de cuidadores
+* Busca de cuidador por ID
+* Atualização de cuidador
+* Remoção de cuidador
 * Herança entre entidades com JPA
 * Uso de DTOs para transferência de dados
+* Endereco como objeto embutido
 * Integração com MySQL
 * Versionamento do banco com Flyway
 
@@ -225,4 +257,5 @@ spring.flyway.enabled=true
 
 ## 👨‍💻 Autor
 
-Desenvolvido como projeto de estudo utilizando boas práticas de desenvolvimento backend com Spring Boot.
+Lucas 
+Projeto desenvolvido para prática de desenvolvimento backend com Java e Spring Boot, aplicando conceitos utilizados em sistemas reais e arquitetura profissional.
