@@ -1,4 +1,4 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.pessoa;
 
 public record DadosListagemPessoa(
 

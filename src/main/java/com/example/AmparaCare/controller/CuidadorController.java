@@ -1,8 +1,8 @@
 package com.example.AmparaCare.controller;
 
-import com.example.AmparaCare.DTO.DadosAtualizacaoCuidador;
-import com.example.AmparaCare.DTO.DadosCadastroCuidador;
-import com.example.AmparaCare.DTO.DadosListagemCuidador;
+import com.example.AmparaCare.DTO.cuidador.DadosAtualizacaoCuidador;
+import com.example.AmparaCare.DTO.cuidador.DadosCadastroCuidador;
+import com.example.AmparaCare.DTO.cuidador.DadosListagemCuidador;
 import com.example.AmparaCare.model.Cuidador;
 import com.example.AmparaCare.repository.CuidadorRepository;
 import jakarta.transaction.Transactional;

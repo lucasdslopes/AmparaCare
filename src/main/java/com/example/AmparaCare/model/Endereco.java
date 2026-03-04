@@ -1,10 +1,7 @@
 package com.example.AmparaCare.model;
 
-import com.example.AmparaCare.DTO.DadosEndereco;
+import com.example.AmparaCare.DTO.endereco.DadosEndereco;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

@@ -1,8 +1,9 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.cliente;
 
-import jakarta.validation.constraints.NotBlank;
+import com.example.AmparaCare.DTO.endereco.DadosEndereco;
 
 public record DadosAtualizacaoCliente(
+
 
         String nome,
         String genero,

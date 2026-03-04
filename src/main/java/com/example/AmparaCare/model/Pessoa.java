@@ -1,7 +1,7 @@
 package com.example.AmparaCare.model;
 
-import com.example.AmparaCare.DTO.DadosAtualizacaoPessoa;
-import com.example.AmparaCare.DTO.DadosCadastroPessoa;
+import com.example.AmparaCare.DTO.pessoa.DadosAtualizacaoPessoa;
+import com.example.AmparaCare.DTO.pessoa.DadosCadastroPessoa;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;

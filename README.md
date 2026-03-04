@@ -23,6 +23,7 @@ O sistema permite cadastro, consulta, atualização e remoção de clientes e cu
 O projeto segue uma arquitetura em camadas:
 
 * **Controller** → responsável pelos endpoints da API
+* **Service** → responsável pelas regras de negócio e validações
 * **DTO** → responsável pela transferência de dados
 * **Model (Entity)** → representa as entidades do banco de dados
 * **Repository** → responsável pela comunicação com o banco
@@ -36,6 +37,8 @@ O projeto foi desenvolvido seguindo boas práticas de desenvolvimento backend, i
 
 - Arquitetura em camadas (Controller, DTO, Entity, Repository)
 - Separação de responsabilidades (Separation of Concerns)
+- Regras de negócio centralizadas na camada Service
+- Uso de @Transactional para controle de transações
 - Uso de DTOs para desacoplamento da camada de domínio
 - Princípios SOLID
 - Domain-Driven Design (DDD) 
@@ -44,6 +47,8 @@ O projeto foi desenvolvido seguindo boas práticas de desenvolvimento backend, i
 - Versionamento de banco com Flyway
 - Validação com Bean Validation
 - Uso de Optional para evitar NullPointerException
+- Tratamento de exceções de integridade (CPF e Email únicos)
+- Uso de ResponseEntity para controle das respostas HTTP
 
 Essa abordagem torna o sistema mais:
 
@@ -128,18 +133,25 @@ Classe embutida contendo:
 ### Cliente
 
 **POST** `/clientes`
-Cadastra um novo cliente
+
+Cadastra um novo cliente 
+
+Valida se CPF e Email já existem antes de salvar 
 
 **GET** `/clientes`
+
 Lista todos os clientes
 
 **GET** `/clientes/{id}`
+
 Busca um cliente pelo ID
 
 **PUT** `/clientes/{cpf}`
+
 Atualiza os dados de um cliente pelo CPF
 
 **DELETE** `/clientes/{id}`
+
 Remove um cliente pelo ID
 
 ---
@@ -157,6 +169,20 @@ Atualiza os dados de um cuidador pelo CPF
 
 **DELETE** `/cuidadores/{id}`
 Remove um cuidador pelo ID
+---
+## 🛠 Regras de Negócio
+As principais regras implementadas na camada Service incluem:
+* Não permitir cadastro com CPF duplicado
+* Não permitir cadastro com Email duplicado
+* Lançamento de exceção em caso de violação de integridade
+* Uso de @Transactional para garantir consistência da operação
+
+Exemplo de regra aplicada:
+* Verificação com findByCpf
+
+* Verificação com findByEmail
+
+* Tratamento de DataIntegrityViolationException
 
 ---
 
@@ -236,7 +262,7 @@ spring.flyway.enabled=true
 ---
 
 ## ✅ Funcionalidades implementadas
-
+* Cadastro de cliente com validação de CPF e Email
 * Cadastro de cliente
 * Listagem de clientes
 * Busca de cliente por ID
@@ -252,6 +278,8 @@ spring.flyway.enabled=true
 * Endereco como objeto embutido
 * Integração com MySQL
 * Versionamento do banco com Flyway
+* Regras de negócio centralizadas na Service 
+* Uso de ResponseEntity para respostas HTTP adequadas 
 
 ---
 

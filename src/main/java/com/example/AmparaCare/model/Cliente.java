@@ -1,6 +1,9 @@
 package com.example.AmparaCare.model;
 
-import com.example.AmparaCare.DTO.*;
+import com.example.AmparaCare.DTO.cliente.DadosAtualizacaoCliente;
+import com.example.AmparaCare.DTO.cliente.DadosCadastroCliente;
+import com.example.AmparaCare.DTO.pessoa.DadosAtualizacaoPessoa;
+import com.example.AmparaCare.DTO.pessoa.DadosCadastroPessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
@@ -48,5 +51,6 @@ public class Cliente extends Pessoa{
             this.contatoEmergencia = dados.contatoEmergencia();
         }
     }
+
 
 }

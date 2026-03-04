@@ -1,9 +1,9 @@
 package com.example.AmparaCare.model;
 
-import com.example.AmparaCare.DTO.DadosAtualizacaoCuidador;
-import com.example.AmparaCare.DTO.DadosAtualizacaoPessoa;
-import com.example.AmparaCare.DTO.DadosCadastroCuidador;
-import com.example.AmparaCare.DTO.DadosCadastroPessoa;
+import com.example.AmparaCare.DTO.cuidador.DadosAtualizacaoCuidador;
+import com.example.AmparaCare.DTO.pessoa.DadosAtualizacaoPessoa;
+import com.example.AmparaCare.DTO.cuidador.DadosCadastroCuidador;
+import com.example.AmparaCare.DTO.pessoa.DadosCadastroPessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;

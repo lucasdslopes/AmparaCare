@@ -1,4 +1,4 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

@@ -1,5 +1,6 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.cuidador;
 
+import com.example.AmparaCare.DTO.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

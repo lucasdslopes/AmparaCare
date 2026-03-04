@@ -1,5 +1,6 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.cliente;
 
+import com.example.AmparaCare.DTO.endereco.DadosListagemEndereco;
 import com.example.AmparaCare.model.Cliente;
 
 public record DadosListagemCliente(

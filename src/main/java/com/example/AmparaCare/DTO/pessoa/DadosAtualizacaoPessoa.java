@@ -1,8 +1,6 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.pessoa;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import com.example.AmparaCare.DTO.endereco.DadosEndereco;
 
 public record DadosAtualizacaoPessoa(
 

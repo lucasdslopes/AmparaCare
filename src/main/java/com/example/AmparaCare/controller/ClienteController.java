@@ -1,13 +1,12 @@
 package com.example.AmparaCare.controller;
 
-import com.example.AmparaCare.DTO.DadosAtualizacaoCliente;
-import com.example.AmparaCare.DTO.DadosCadastroCliente;
-import com.example.AmparaCare.DTO.DadosListagemCliente;
-import com.example.AmparaCare.model.Cliente;
-import com.example.AmparaCare.repository.ClienteRepository;
-import jakarta.transaction.Transactional;
+import com.example.AmparaCare.DTO.cliente.DadosAtualizacaoCliente;
+import com.example.AmparaCare.DTO.cliente.DadosCadastroCliente;
+import com.example.AmparaCare.DTO.cliente.DadosListagemCliente;
+import com.example.AmparaCare.service.ClienteService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,38 +15,39 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-    @Autowired
-    private ClienteRepository repository;
+    private final ClienteService service;
+
+    public ClienteController(ClienteService service){
+        this.service = service;
+    }
+
 
     @PostMapping
-    @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroCliente dados){
-        repository.save(new Cliente(dados));
+    public ResponseEntity<Void> cadastrar(@RequestBody @Valid DadosCadastroCliente dados){
+        service.cadastrar(dados);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping
-    public List<DadosListagemCliente> listar(){
-        return repository.findAll().stream().map(DadosListagemCliente::new).toList();
+    public ResponseEntity<List<DadosListagemCliente>> listar(){
+        return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public DadosListagemCliente buscarPorId(@PathVariable Long id){
-        var cliente = repository.findById(id)
-                .orElseThrow(()->new RuntimeException("Cliente não encontrado"));
-        return new DadosListagemCliente(cliente);
+    public ResponseEntity<DadosListagemCliente> buscarPorId(@PathVariable Long id){
+        return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PutMapping("/{cpf}")
-    @Transactional
-    public void atualizarPorCpf(@PathVariable String cpf,@RequestBody @Valid DadosAtualizacaoCliente dados){
-        var cliente = repository.findByCpf(cpf).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-        cliente.atualizarInformacoes(dados);
+    public ResponseEntity<Void> atualizarPorCpf(@PathVariable String cpf,@RequestBody @Valid DadosAtualizacaoCliente dados){
+       service.atualizarPorCpf(cpf, dados);
+       return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    @Transactional
-    public void excluir(@PathVariable Long id){
-        repository.deleteById(id);
+    public ResponseEntity<Void> excluir(@PathVariable Long id){
+        service.excluir(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

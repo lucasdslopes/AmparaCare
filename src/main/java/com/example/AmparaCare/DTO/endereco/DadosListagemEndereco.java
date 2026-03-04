@@ -1,4 +1,4 @@
-package com.example.AmparaCare.DTO;
+package com.example.AmparaCare.DTO.endereco;
 
 import com.example.AmparaCare.model.Endereco;
 
