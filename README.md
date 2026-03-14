@@ -1,8 +1,8 @@
 # AmparaCare API
 
-API REST desenvolvida com Java e Spring Boot para gerenciamento de clientes e cuidadores em uma plataforma de cuidados.
-O sistema permite cadastro, consulta, atualização e remoção de clientes e cuidadores, utilizando boas práticas de arquitetura backend, modelagem de domínio e persistência com JPA.
-
+API REST desenvolvida com Java e Spring Boot para gerenciamento de clientes, cuidadores e atendimentos em uma plataforma de cuidados.
+O sistema permite cadastro, consulta, atualização e remoção de clientes e cuidadores, além do agendamento de atendimentos entre clientes e cuidadores disponíveis.
+O projeto aplica boas práticas de arquitetura backend, modelagem de domínio e persistência com JPA.
 ## 🚀 Tecnologias utilizadas
 
 * Java 25
@@ -103,6 +103,34 @@ Classe embutida contendo:
 * cidade
 * uf
 
+### Atendimento
+
+Representa o agendamento de um serviço entre cliente e cuidador.
+
+Possui os campos:
+
+* id
+* cliente
+* cuidador
+* data
+* hora
+* observacao
+* status
+* valor
+
+### Relacionamentos
+
+O sistema possui relacionamentos entre entidades utilizando JPA:
+
+* Um **Cliente** pode possuir vários **Atendimentos**
+* Um **Cuidador** pode realizar vários **Atendimentos**
+* Cada **Atendimento** pertence a um **Cliente** e a um **Cuidador**
+
+Esses relacionamentos são mapeados utilizando:
+
+* `@ManyToOne`
+* `@OneToMany`
+
 ---
 
 ## 📦 DTOs criados
@@ -113,12 +141,14 @@ Classe embutida contendo:
 * DadosCadastroCliente
 * DadosCadastroCuidador
 * DadosEndereco
+* DadosCadastroAtendimento
 
 ### Listagem
 
 * DadosListagemPessoa
 * DadosListagemCliente
 * DadosListagemCuidador
+* DadosListagemAtendimento
 
 ### Atualização
 
@@ -169,6 +199,25 @@ Atualiza os dados de um cuidador pelo CPF
 
 **DELETE** `/cuidadores/{id}`
 Remove um cuidador pelo ID
+
+---
+
+### Atendimento
+
+**POST** `/atendimentos/clientes/{clienteId}`
+
+Cria um novo atendimento para um cliente.
+
+Regras aplicadas:
+
+* O cliente deve existir
+* Um cuidador disponível é selecionado automaticamente
+* O atendimento é registrado vinculando cliente e cuidador
+
+**GET** `/atendimentos`
+
+Lista todos os atendimentos cadastrados.
+
 ---
 ## 🛠 Regras de Negócio
 As principais regras implementadas na camada Service incluem:
@@ -176,6 +225,7 @@ As principais regras implementadas na camada Service incluem:
 * Não permitir cadastro com Email duplicado
 * Lançamento de exceção em caso de violação de integridade
 * Uso de @Transactional para garantir consistência da operação
+* Seleção automática de cuidador disponível para um atendimento
 
 Exemplo de regra aplicada:
 * Verificação com findByCpf
@@ -203,6 +253,7 @@ Tabelas criadas:
 * pessoas
 * cliente
 * cuidador
+* atendimentos
 
 ---
 
@@ -216,6 +267,8 @@ Migration criada:
 db/migration/V1__create-table-pessoas.sql
 db/migration/V1__create-table-clientes.sql
 db/migration/V1__create-table-cuidadores.sql
+db/migration/V4__create-table-atendimentos.sql  
+db/migration/V5__fix_id_auto_increment_atendimentos.sql
 ```
 
 Responsável por criar:
@@ -263,7 +316,6 @@ spring.flyway.enabled=true
 
 ## ✅ Funcionalidades implementadas
 * Cadastro de cliente com validação de CPF e Email
-* Cadastro de cliente
 * Listagem de clientes
 * Busca de cliente por ID
 * Atualização de cliente
@@ -280,10 +332,14 @@ spring.flyway.enabled=true
 * Versionamento do banco com Flyway
 * Regras de negócio centralizadas na Service 
 * Uso de ResponseEntity para respostas HTTP adequadas 
+* Criação de atendimentos entre cliente e cuidador
+* Seleção automática de cuidador disponível
+* Listagem de atendimentos
 
 ---
 
 ## 👨‍💻 Autor
 
-Lucas 
-Projeto desenvolvido para prática de desenvolvimento backend com Java e Spring Boot, aplicando conceitos utilizados em sistemas reais e arquitetura profissional.
+Lucas
+
+Projeto desenvolvido para prática de desenvolvimento backend com Java e Spring Boot, aplicando conceitos de arquitetura em camadas, boas práticas de desenvolvimento e modelagem de domínio utilizados em sistemas reais.

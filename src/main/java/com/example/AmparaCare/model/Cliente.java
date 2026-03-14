@@ -5,12 +5,15 @@ import com.example.AmparaCare.DTO.cliente.DadosCadastroCliente;
 import com.example.AmparaCare.DTO.pessoa.DadosAtualizacaoPessoa;
 import com.example.AmparaCare.DTO.pessoa.DadosCadastroPessoa;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Table(name = "clientes")
 @Entity(name = "Clientes")
@@ -22,6 +25,9 @@ public class Cliente extends Pessoa{
 
     private String condicoesMedicas;
     private String contatoEmergencia;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Atendimento> atendimentos;
 
     public Cliente(DadosCadastroCliente dados){
         super(new DadosCadastroPessoa(

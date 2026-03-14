@@ -5,12 +5,15 @@ import com.example.AmparaCare.DTO.pessoa.DadosAtualizacaoPessoa;
 import com.example.AmparaCare.DTO.cuidador.DadosCadastroCuidador;
 import com.example.AmparaCare.DTO.pessoa.DadosCadastroPessoa;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity(name = "Cuidadores") // JPA DO JAVA
 @Table(name = "cuidadores") // BANCO DE DADOS
@@ -24,6 +27,13 @@ public class Cuidador extends Pessoa{
     private String experiencia;
     private Boolean disponivel;
     private Double valorHora;
+
+    @OneToMany(mappedBy = "cuidador")
+    private List<Atendimento> atendimentos;
+
+    public boolean estaDisponivel(){
+        return Boolean.TRUE.equals(this.disponivel);
+    }
 
     public Cuidador(DadosCadastroCuidador dados){
         super(new DadosCadastroPessoa(

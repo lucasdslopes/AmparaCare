@@ -22,13 +22,6 @@ public class ClienteService {
 
     @Transactional
     public void cadastrar(DadosCadastroCliente dados) {
-
-        if(repository.findByCpf(dados.cpf()).isPresent()){
-            throw new RuntimeException("CPF já cadastrado");
-        }
-        if(repository.findByEmail(dados.email()).isPresent()){
-            throw new RuntimeException("Email já cadastrado");
-        }
         try {
             repository.save(new Cliente(dados));
         } catch (DataIntegrityViolationException e) {
